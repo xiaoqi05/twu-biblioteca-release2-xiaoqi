@@ -19,11 +19,6 @@ public class Biblioteca {
     private boolean isRunning = true;
     private boolean isLogin = false;
 
-    public Biblioteca(List<Book> bookList, List<Option> optionList) {
-        this.bookList = bookList;
-        this.optionList = optionList;
-    }
-
     public Biblioteca(BibliorecaContent provider) {
         this.bookList = provider.getBookList();
         this.movieList = provider.getMovieList();

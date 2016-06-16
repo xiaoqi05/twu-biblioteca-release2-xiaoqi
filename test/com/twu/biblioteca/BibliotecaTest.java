@@ -1,30 +1,20 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.menus.ListBooks;
-import com.twu.biblioteca.menus.Option;
-import com.twu.biblioteca.model.Book;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class BibliotecaTest {
     private Biblioteca biblioteca;
-    private List<Book> bookList;
-    private List<Option> optionList;
 
     @Before
     public void setUp() {
-        bookList = new ArrayList<Book>();
-        bookList.add(new Book("xiaoqi", "time", "2014-5", 9992342, true));
-        optionList = new ArrayList<Option>();
-        optionList.add(new ListBooks("ShowAllBook", 1));
-        biblioteca = new Biblioteca(bookList, optionList);
+
+        biblioteca = new Biblioteca(ContentProvider.getContent());
         bytes = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bytes));
     }
@@ -41,13 +31,15 @@ public class BibliotecaTest {
     @Test
     public void shouldShowAllLibraryBooksAfterWelcomeMessage() throws Exception {
         biblioteca.showAllLibraryBooks();
-        assertEquals("ShowAllBooks :\n" + "bookName=time, author=xiaoqi,isbn=9992342, publishDate=2014-5\n", bytes.toString());
+        assertEquals("ShowAllBooks :\n" +
+                "bookName=time, author=xiaoqi,isbn=1, publishDate=2014-5\n" +
+                "bookName=timess, author=xiaoq1i,isbn=2, publishDate=2014-5\n", bytes.toString());
     }
 
     @Test
     public void shouldShowMenu() throws Exception {
         biblioteca.showMenu();
-        assertEquals("1:ShowAllBook  \n", bytes.toString());
+        assertEquals("1:Login  2:ShowAllBooks  3:CheckoutBook  4:ReturnBook  5:ShowAllMovies  6:CheckoutMovie  7:Quit  \n", bytes.toString());
 
     }
 }
