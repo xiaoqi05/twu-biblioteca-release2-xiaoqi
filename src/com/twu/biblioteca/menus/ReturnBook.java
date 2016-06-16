@@ -2,8 +2,8 @@ package com.twu.biblioteca.menus;
 
 import com.twu.biblioteca.Biblioteca;
 
-public class returnBook extends Option {
-    public returnBook(String name, int id) {
+public class ReturnBook extends Option {
+    public ReturnBook(String name, int id) {
         super(name, id);
     }
 

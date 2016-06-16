@@ -20,8 +20,8 @@ public class BibliotecaApp {
 
         ArrayList<Option> optionList = new ArrayList<Option>();
         optionList.add(new ListBooks("ShowAllBooks", 1));
-        optionList.add(new checkoutBook("CheckoutBook", 2));
-        optionList.add(new returnBook("ReturnBook", 3));
+        optionList.add(new CheckoutBook("CheckoutBook", 2));
+        optionList.add(new ReturnBook("ReturnBook", 3));
         optionList.add(new ListMovies("ShowAllMovies", 4));
         optionList.add(new CheckoutMovie("CheckoutMovie", 5));
         optionList.add(new Quit("Quit", 6));

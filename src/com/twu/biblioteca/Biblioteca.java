@@ -212,4 +212,8 @@ public class Biblioteca {
     private void showCheckOutMovieUnSuccessMessage() {
         consolePrint("That movie is not available\n");
     }
+
+    public void login() {
+
+    }
 }
