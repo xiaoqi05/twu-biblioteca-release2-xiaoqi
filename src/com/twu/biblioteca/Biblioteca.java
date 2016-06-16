@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.menus.Option;
+import com.twu.biblioteca.model.BibliorecaContent;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.User;
@@ -23,17 +24,11 @@ public class Biblioteca {
         this.optionList = optionList;
     }
 
-    public Biblioteca(List<Book> bookList, List<Movie> movieList, List<Option> optionList) {
-        this.bookList = bookList;
-        this.movieList = movieList;
-        this.optionList = optionList;
-    }
-
-    public Biblioteca(List<Book> bookList, List<Movie> movieList, List<Option> optionList, List<User> userList) {
-        this.bookList = bookList;
-        this.movieList = movieList;
-        this.optionList = optionList;
-        this.userList = userList;
+    public Biblioteca(BibliorecaContent provider) {
+        this.bookList = provider.getBookList();
+        this.movieList = provider.getMovieList();
+        this.optionList = provider.getOptionList();
+        this.userList = provider.getUserList();
     }
 
     void start() {
