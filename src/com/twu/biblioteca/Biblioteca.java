@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.menus.Option;
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,12 +10,19 @@ import java.util.regex.Pattern;
 
 public class Biblioteca {
     private List<Book> bookList;
+    private List<Movie> movieList;
     private List<Option> optionList;
     private Scanner scanner = new Scanner(System.in);
     private boolean isRunning = true;
 
-    Biblioteca(List<Book> bookList, List<Option> optionList) {
+    public Biblioteca(List<Book> bookList, List<Option> optionList) {
         this.bookList = bookList;
+        this.optionList = optionList;
+    }
+
+    public Biblioteca(List<Book> bookList, List<Movie> movieList, List<Option> optionList) {
+        this.bookList = bookList;
+        this.movieList = movieList;
         this.optionList = optionList;
     }
 
@@ -161,5 +169,14 @@ public class Biblioteca {
 
     private void showReturnSuccessMessage() {
         consolePrint("Thank you for returning the book\n");
+    }
+
+    public void showAllLibraryMovies() {
+        consolePrint("ShowAllMovies :\n");
+        for (Movie movie : movieList) {
+            if (movie.isInLibrary()) {
+                consolePrint(movie.showMovie() + "\n");
+            }
+        }
     }
 }

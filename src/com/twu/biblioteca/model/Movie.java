@@ -5,11 +5,11 @@ public class Movie {
     private String name;
     private String year;
     private String director;
-    private String rating;
+    private int rating;
     private boolean isInLibrary;
     private int isbn;
 
-    public Movie(String name, String year, String director, String rating, boolean isInLibrary, int isbn) {
+    public Movie(String name, String year, String director, int rating, boolean isInLibrary, int isbn) {
         this.name = name;
         this.year = year;
         this.director = director;
@@ -64,11 +64,11 @@ public class Movie {
         this.director = director;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
