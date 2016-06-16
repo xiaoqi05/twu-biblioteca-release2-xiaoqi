@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.menus.Option;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +13,10 @@ public class Biblioteca {
     private List<Book> bookList;
     private List<Movie> movieList;
     private List<Option> optionList;
+    private List<User> userList;
     private Scanner scanner = new Scanner(System.in);
     private boolean isRunning = true;
+    private boolean isLogin = false;
 
     public Biblioteca(List<Book> bookList, List<Option> optionList) {
         this.bookList = bookList;
@@ -24,6 +27,13 @@ public class Biblioteca {
         this.bookList = bookList;
         this.movieList = movieList;
         this.optionList = optionList;
+    }
+
+    public Biblioteca(List<Book> bookList, List<Movie> movieList, List<Option> optionList, List<User> userList) {
+        this.bookList = bookList;
+        this.movieList = movieList;
+        this.optionList = optionList;
+        this.userList = userList;
     }
 
     void start() {
@@ -43,12 +53,20 @@ public class Biblioteca {
             return;
         }
         int userInputMenuId = Integer.parseInt(userInput);
+        if (!isLogin && userInputMenuId != 1) {
+            showLoginMessage();
+            return;
+        }
         for (Option option : optionList) {
             if (option.getId() == userInputMenuId) {
                 option.run(this);
             }
         }
 
+    }
+
+    private void showLoginMessage() {
+        consolePrint("please login\n");
     }
 
     private boolean checkMenuInputIsValid(String input) {
@@ -102,6 +120,7 @@ public class Biblioteca {
 
     public void quit() {
         this.isRunning = false;
+        this.isLogin = false;
         consolePrint("Quit");
     }
 
@@ -214,6 +233,21 @@ public class Biblioteca {
     }
 
     public void login() {
-
+        consolePrint("Login:\n");
+        consolePrint("please input your library number :\n");
+        String inputLibraryNumber = scanner.nextLine();
+        boolean isValidUserInLibrary = false;
+        for (User user : userList) {
+            if (user.getLibraryNumber().equals(inputLibraryNumber)) {
+                isValidUserInLibrary = true;
+                isLogin = true;
+                consolePrint("login success\n");
+            }
+        }
+        if (!isValidUserInLibrary) {
+            consolePrint("error user name\n");
+            return;
+        }
+        showMenu();
     }
 }
