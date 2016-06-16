@@ -237,7 +237,6 @@ public class Biblioteca {
         }
         if (!isValidUserInLibrary) {
             consolePrint("error user name\n");
-            return;
         }
         showMenu();
     }
