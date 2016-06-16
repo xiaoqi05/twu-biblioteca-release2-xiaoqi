@@ -17,6 +17,14 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public String showUserInfo() {
+        return "name=" + name +
+                ", email=" + email +
+                ", address=" + address +
+                ", libraryNumber=" + libraryNumber +
+                ", phoneNumber=" + phoneNumber;
+    }
+
     public String getName() {
         return name;
     }

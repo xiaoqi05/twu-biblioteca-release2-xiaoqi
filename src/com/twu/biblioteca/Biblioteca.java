@@ -242,6 +242,7 @@ public class Biblioteca {
                 isValidUserInLibrary = true;
                 isLogin = true;
                 consolePrint("login success\n");
+                consolePrint("login account is:\n" + user.showUserInfo() + "\n");
             }
         }
         if (!isValidUserInLibrary) {
