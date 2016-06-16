@@ -109,7 +109,7 @@ public class Biblioteca {
         consolePrint("checkout book by isbn:\n");
         String userInput = scanner.nextLine();
         if (!isNumeric(userInput) || userInput.equals("")) {
-            showCheckOutUnSuccessMessage();
+            showCheckOutBookUnSuccessMessage();
             return;
         }
         boolean isValidBook = false;
@@ -119,22 +119,22 @@ public class Biblioteca {
                 boolean isCheckoutSuccess = book.checkOutBook();
                 if (isCheckoutSuccess) {
                     consolePrint("you have checkout this book:\n" + book.showBook() + "\n");
-                    showCheckOutSuccessMessage();
+                    showCheckOutBookSuccessMessage();
                 } else {
-                    showCheckOutUnSuccessMessage();
+                    showCheckOutBookUnSuccessMessage();
                 }
             }
         }
         if (!isValidBook) {
-            showCheckOutUnSuccessMessage();
+            showCheckOutBookUnSuccessMessage();
         }
     }
 
-    private void showCheckOutUnSuccessMessage() {
+    private void showCheckOutBookUnSuccessMessage() {
         consolePrint("That book is not available\n");
     }
 
-    private void showCheckOutSuccessMessage() {
+    private void showCheckOutBookSuccessMessage() {
         consolePrint("Thank you! Enjoy the book\n");
     }
 
@@ -178,5 +178,38 @@ public class Biblioteca {
                 consolePrint(movie.showMovie() + "\n");
             }
         }
+    }
+
+    public void checkoutMovie() {
+        consolePrint("checkout movie by isbn:\n");
+        String userInput = scanner.nextLine();
+        if (!isNumeric(userInput) || userInput.equals("")) {
+            showCheckOutMovieUnSuccessMessage();
+            return;
+        }
+        boolean isValidMovie = false;
+        for (Movie movie : movieList) {
+            if (movie.getIsbn() == Integer.parseInt(userInput)) {
+                isValidMovie = true;
+                boolean isCheckoutSuccess = movie.checkOutMovie();
+                if (isCheckoutSuccess) {
+                    consolePrint("you have checkout this book:\n" + movie.showMovie() + "\n");
+                    showCheckOutMovieSuccessMessage();
+                } else {
+                    showCheckOutMovieUnSuccessMessage();
+                }
+            }
+        }
+        if (!isValidMovie) {
+            showCheckOutMovieUnSuccessMessage();
+        }
+    }
+
+    private void showCheckOutMovieSuccessMessage() {
+        consolePrint("Thank you! Enjoy the movie\n");
+    }
+
+    private void showCheckOutMovieUnSuccessMessage() {
+        consolePrint("That movie is not available\n");
     }
 }

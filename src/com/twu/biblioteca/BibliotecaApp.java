@@ -19,11 +19,12 @@ public class BibliotecaApp {
         movieList.add(new Movie("Star Wars", "2016-5", "George Lucas", 5, true, 113));
 
         ArrayList<Option> optionList = new ArrayList<Option>();
-        optionList.add(new ListBooks("ShowAllBook", 1));
-        optionList.add(new checkoutBook("checkoutBook", 2));
-        optionList.add(new returnBook("returnBook", 3));
-        optionList.add(new ListMovies("ShowAllMovie", 4));
-        optionList.add(new Quit("Quit", 5));
+        optionList.add(new ListBooks("ShowAllBooks", 1));
+        optionList.add(new checkoutBook("CheckoutBook", 2));
+        optionList.add(new returnBook("ReturnBook", 3));
+        optionList.add(new ListMovies("ShowAllMovies", 4));
+        optionList.add(new CheckoutMovie("CheckoutMovie", 5));
+        optionList.add(new Quit("Quit", 6));
 
         Biblioteca biblioteca = new Biblioteca(bookList, movieList, optionList);
         biblioteca.start();
