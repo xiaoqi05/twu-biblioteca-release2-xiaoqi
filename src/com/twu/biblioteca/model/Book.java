@@ -22,62 +22,23 @@ public class Book {
                 ", publishDate=" + publishDate;
     }
 
-    /**
-     * @return false means check fail means true check success
-     */
     public boolean checkOutBook() {
         if (!isInLibrary) return false;
-        setInLibrary(false);
+        isInLibrary = false;
         return true;
     }
 
-    /**
-     * @return false means return fail means true return success
-     */
     public boolean returnBook() {
         if (isInLibrary) return false;
-        setInLibrary(true);
+        isInLibrary = true;
         return true;
-    }
-
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public String getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(String publishDate) {
-        this.publishDate = publishDate;
-    }
-
-    public int getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(int isbn) {
-        this.isbn = isbn;
     }
 
     public boolean isInLibrary() {
         return isInLibrary;
     }
 
-    private void setInLibrary(boolean inLibrary) {
-        isInLibrary = inLibrary;
+    public int getIsbn() {
+        return isbn;
     }
 }
