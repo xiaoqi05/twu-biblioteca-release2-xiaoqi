@@ -14,32 +14,16 @@ public class BibliorecaContent {
         return bookList;
     }
 
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
-    }
-
     public List<Movie> getMovieList() {
         return movieList;
-    }
-
-    public void setMovieList(List<Movie> movieList) {
-        this.movieList = movieList;
     }
 
     public List<Option> getOptionList() {
         return optionList;
     }
 
-    public void setOptionList(List<Option> optionList) {
-        this.optionList = optionList;
-    }
-
     public List<User> getUserList() {
         return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
     }
 
     public BibliorecaContent(List<Book> bookList, List<Movie> movieList, List<Option> optionList, List<User> userList) {
